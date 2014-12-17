@@ -52,15 +52,6 @@ public class Main {
             }
         };
 
-        /*
-        CaretListener onTextChanged = new CaretListener() {
-            @Override
-            public void caretUpdate(CaretEvent e) {
-
-            }
-        };
-        */
-
         input_factorial.addMouseListener(onTextClick);
         input_fibonacci.addMouseListener(onTextClick);
 
@@ -70,8 +61,6 @@ public class Main {
                 calculate();
             }
         });
-
-        //MaskFormatter formatterTextField = new MaskFormatter("###");
 
         panel.add(calc_button);
         panel.add(warning_label);
@@ -93,7 +82,6 @@ public class Main {
             warning_label.setText("Just integer!");
             return false;
         }
-
         return true;
     }
 
@@ -105,8 +93,11 @@ public class Main {
             JPanel panel = new JPanel();
             panel.setPreferredSize(new Dimension(200,50));
 
-            panel.add(new JLabel("Factorial of " + input_factorial.getText() + " = " + Factorial.calc(Long.parseLong(input_factorial.getText()))));
-            panel.add(new JLabel(input_fibonacci.getText() + "th Fibonacci number is " + Fibonacci.calc(Long.parseLong(input_fibonacci.getText()))));
+            Long factorial = Factorial.calc(Long.parseLong(input_factorial.getText()));
+            Long fibonacci = Fibonacci.calc(Long.parseLong(input_fibonacci.getText()));
+
+            panel.add(new JLabel("Factorial of " + input_factorial.getText() + "! = " + factorial));
+            panel.add(new JLabel(input_fibonacci.getText() + "th Fibonacci number is " + fibonacci));
 
             dialog.add(panel);
             dialog.pack();
