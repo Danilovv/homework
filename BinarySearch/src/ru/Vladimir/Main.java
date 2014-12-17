@@ -267,15 +267,15 @@ private static void showResult(int[] _toSearch, int[] _foundIndex, int[] _whereS
     int dialog_height = 0;
 
     JPanel dialogPanel = new JPanel();
-    dialogPanel.setPreferredSize(new Dimension(200, 50));
 
     JLabel[] reports = new JLabel[_foundIndex.length];
 
     for (int i = 0; i < reports.length; i++) {
         reports[i] = new JLabel(_toSearch[i] + " found at " + _foundIndex[i] + " position..");
+        reports[i].setBounds(0,dialog_height,200,15);
         System.out.println(_toSearch[i] + " found at " + _foundIndex[i] + " position..");
         dialogPanel.add(reports[i]);
-        
+        dialog_height+=20;
     }
 
     JLabel outputArray;
@@ -283,7 +283,13 @@ private static void showResult(int[] _toSearch, int[] _foundIndex, int[] _whereS
     for(int one: _whereSearch)
         output += " " + one;
     outputArray = new JLabel(output);
+    outputArray.setBounds(0,dialog_height,400,15);
     dialogPanel.add(outputArray);
+    dialog_height += outputArray.getHeight();
+
+    //dialogResult.setPreferredSize(new Dimension(200, dialog_height));
+    dialogPanel.setPreferredSize(new Dimension(400, dialog_height));
+    dialogPanel.setLayout(null);
 
     dialogResult.add(dialogPanel);
     dialogResult.pack();

@@ -27,7 +27,7 @@ public class BinarySearch {
         int di = 1;
         if (num == _whereSearch[middleIndex]) return middleIndex;
         if (num < _whereSearch[middleIndex]) di *= -1;
-        for(int index = 0; index >= 0 && index <= _whereSearch.length-1; index += di) {
+        for(int index = middleIndex; index >= 0 && index <= _whereSearch.length-1; index += di) {
             if(num == _whereSearch[index]) return index;
         }
         return -1;
