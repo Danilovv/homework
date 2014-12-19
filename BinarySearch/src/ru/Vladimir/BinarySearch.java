@@ -17,7 +17,7 @@ class BinarySearch {
         return new int[][]{found, _whereSearch};
     }
 
-    private static int search(int num) {
+    public static int search(int num) {
         int middleIndex = _whereSearch.length / 2;
         int di = 1;
         if (num == _whereSearch[middleIndex]) return middleIndex;

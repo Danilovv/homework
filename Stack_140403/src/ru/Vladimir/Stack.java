@@ -12,15 +12,20 @@ public class Stack {
         items = new Object[maxSize];
     }
 
-    public void push(Object item) {
+    public void push(Object item) throws StackOverflowError {
+        if(getSize() == items.length) {
+            throw new StackOverflowError();
+        }
         items[index++] = item;
     }
 
     public Object pop() {
+        if(isEmpty()) return null;
         return items[--index];
     }
 
     public Object top() {
+        if(isEmpty()) return null;
         return items[index-1];
     }
 
