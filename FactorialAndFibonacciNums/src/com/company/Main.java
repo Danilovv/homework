@@ -21,7 +21,7 @@ public class Main {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Factorial&FibonacciNums");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocation((int)sSize.getWidth()/2,(int)sSize.getHeight()/2);
+        frame.setLocation((int)sSize.getWidth()/2,(int)sSize.getHeight()/2);  // Position in the middle of the screen
 
         JPanel panel =  new JPanel();
 
@@ -46,7 +46,7 @@ public class Main {
                 try {
                     ((JTextField) e.getSource()).setText("");
                 }
-                catch (Exception ex) {      // For Indians
+                catch (Exception ex) {
                     System.err.println("don't assign this exception to non-TextField");
                 }
             }
