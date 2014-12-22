@@ -1,7 +1,10 @@
+import javax.swing.*;
+import java.awt.*;
+
 /**
  * Created by Vladimir_Danilov on 22-Dec-14.
  */
-public class Robot2d implements Robot {
+public class Robot2d extends JPanel implements Robot {
 
     private static final int DY = 10;
     private static final int DX = 10;
@@ -10,16 +13,17 @@ public class Robot2d implements Robot {
 
     public Robot2d(int x, int y) {
         _x = x;
+        _y = x;
     }
 
     @Override
     public void up() {
-        _y -= -DY;
+        _y -= +DY;
     }
 
     @Override
     public void down() {
-        _y += DY;
+        _y += -DY;
     }
 
     @Override
@@ -43,5 +47,12 @@ public class Robot2d implements Robot {
 
     public int get_x() {
         return _x;
+    }
+
+    @Override
+    public void paint(Graphics g) {
+        super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D) g;
+        g2.fillOval(_x, _y, 30, 30);
     }
 }
