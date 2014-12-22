@@ -26,6 +26,7 @@ public class Dispatcher implements CommandListener {
             Method[] methods = robotClass.getMethods();
             for (Method method : methods) {
                 if(method.getName().equals(command)) {
+                // if(method.getName().equals(command)) {
                     try {
                         method.invoke(robot, new Object[] {});
                         continue OUTER;
