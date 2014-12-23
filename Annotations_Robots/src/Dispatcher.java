@@ -2,6 +2,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by Vladimir_Danilov on 22-Dec-14.
@@ -13,29 +14,35 @@ public class Dispatcher implements CommandListener {
     }
 
     @Override
-    public void command(String command) {
-        System.out.println("dispatch " + command);
-        if (command == null) {
+    public void command(String _command) {
+        System.out.println("dispatch " + _command);
+        if (_command == null) {
             return;
         }
 
-        OUTER:
-        for(Robot robot : _robots) {
+        OUTER: for(Robot robot : _robots) {
             System.out.println(robot.getClass().getSimpleName());
             Class robotClass = robot.getClass();
             Method[] methods = robotClass.getMethods();
+            RobotCommand robotCommand = null;
             for (Method method : methods) {
-                if(method.getName().equals(command)) {
-                // if(method.getName().equals(command)) {
+
+                if(method.isAnnotationPresent(RobotCommand.class)) {
+                    robotCommand = method.getAnnotation(RobotCommand.class);
+                }
+                else {
+                    continue;
+                }
+
+                if(Objects.equals( robotCommand.value() , _command )) {
                     try {
-                        method.invoke(robot, new Object[] {});
+                        method.invoke(robot);
                         continue OUTER;
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    } catch (InvocationTargetException e) {
+                    } catch (IllegalAccessException |InvocationTargetException e) {
                         e.printStackTrace();
                     }
                 }
+
             }
             /*switch (command) {
                 case "up":

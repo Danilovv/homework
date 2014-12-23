@@ -20,7 +20,7 @@ public class ControlCenter implements CommandListener, Runnable {
     @Override
     public void run() {
         while(true) {
-            _dispatcher.command(_command);
+                _dispatcher.command(_command);
             pause();
         }
     }

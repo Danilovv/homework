@@ -16,26 +16,31 @@ public class Robot2d extends JPanel implements Robot {
         _y = x;
     }
 
+    @RobotCommand("up")
     @Override
     public void up() {
         _y -= +DY;
     }
 
+    @RobotCommand("down")
     @Override
     public void down() {
-        _y += -DY;
+        _y += DY;
     }
 
+    @RobotCommand("left")
     @Override
     public void left() {
         _x -= DX;
     }
 
+    @RobotCommand("right")
     @Override
     public void right() {
         _x += DX;
     }
 
+    @RobotCommand("stop")
     @Override
     public void stop() {
 
