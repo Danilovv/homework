@@ -4,7 +4,7 @@ public class UseStack {
 
     public static void main(String[] args) {
 
-        Stack stack = new Stack(3);
+        Stack<String> stack = new Stack<>(3);
 
         stack.pop();
         stack.top();
@@ -18,6 +18,8 @@ public class UseStack {
         catch (StackOverflowError ex) {
             System.err.println("Stack is too small.");
         }
+
+        System.out.println("Stack top: " + stack.top());
     }
 
 }
