@@ -1,7 +1,5 @@
-
 import javax.swing.*;
 import java.awt.*;
-import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -47,13 +45,7 @@ public class RobotControlPanel {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                try(Scanner scanner = new Scanner(System.in)) {
-                    while (scanner.hasNextLine()) {
-                        String command = scanner.nextLine();
-                        System.out.println(command);
-                        listener.command(command);
-                    }
-                }
+
             }
         }).start();
     }

@@ -38,7 +38,9 @@ public class Dispatcher implements CommandListener {
                     try {
                         method.invoke(robot);
                         continue OUTER;
-                    } catch (IllegalAccessException |InvocationTargetException e) {
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    } catch (InvocationTargetException e) {
                         e.printStackTrace();
                     }
                 }
