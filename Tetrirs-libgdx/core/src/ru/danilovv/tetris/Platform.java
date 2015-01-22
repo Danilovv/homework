@@ -1,6 +1,7 @@
 package ru.danilovv.tetris;
 
 public interface Platform {
+
     void setKeyListener(PlatformKeyListener listener);
     void clearArea();
     void drawRect(int x, int y, int width, int height);

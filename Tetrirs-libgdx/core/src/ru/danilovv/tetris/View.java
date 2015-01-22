@@ -37,6 +37,8 @@ public class View implements PlatformKeyListener {
     private void calculateFieldDimensions(Field field) {
         _fieldHeight = field.getRows() * CELL_SIZE;
         _fieldWidth = field.getColumns() * CELL_SIZE;
+        /*_fieldOffsetX = (_platform.getPlatformWidth() - _fieldWidth) / 2;
+        _fieldOffsetY = (_platform.getPlatformHeight() - _fieldHeight) / 2;*/
         _fieldOffsetX = (_platform.getPlatformWidth() - _fieldWidth) / 2;
         _fieldOffsetY = (_platform.getPlatformHeight() - _fieldHeight) / 2;
     }

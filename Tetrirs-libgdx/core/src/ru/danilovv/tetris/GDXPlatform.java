@@ -78,6 +78,8 @@ public class GDXPlatform extends Actor implements Platform {
     }
 
     public void init(final PlatformKeyListener keyListener, CoreInputListener inputListener) {
+        this.setWidth(400f);
+        this.setHeight(700f);
         _keyListener = keyListener;
         inputListener.init(_keyListener);
         addListener(inputListener);
@@ -142,7 +144,7 @@ public class GDXPlatform extends Actor implements Platform {
 
     @Override
     public void fillRect(int colorIndex, int x, int y, int width, int height) {
-        if(colorIndex == 0) return;
+        //if(colorIndex == 0) return;
         synchronized (mutex) {
             _properties.add(new BlockProperty(x, y, width, height, colorIndex));
         }
@@ -160,11 +162,11 @@ public class GDXPlatform extends Actor implements Platform {
 
     @Override
     public int getPlatformWidth() {
-        return 300;
+        return (int) this.getWidth();
     }
 
     @Override
     public int getPlatformHeight() {
-        return 600;
+        return (int) this.getHeight();
     }
 }

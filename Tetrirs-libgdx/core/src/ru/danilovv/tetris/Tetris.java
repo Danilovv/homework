@@ -21,13 +21,14 @@ public class Tetris extends ApplicationAdapter {
 	OrthographicCamera camera;
 
 	public Tetris(CoreInputListener inputListener) {
-		System.err.println("HI THERE!");
 		_inputListener = inputListener;
 	}
 
 	@Override
 	public void create () {
-		_stage = new Stage(new FitViewport(300, 700));
+		Gdx.graphics.setDisplayMode(400,700, false);
+
+		_stage = new Stage(new FitViewport(400, 700));
 		Gdx.input.setInputProcessor(_stage);
 
 		camera = (OrthographicCamera) _stage.getCamera();
@@ -35,15 +36,15 @@ public class Tetris extends ApplicationAdapter {
 
 		GDXPlatform _platform = new GDXPlatform();
 		for (Actor actor : _platform.getActors()) {
-			System.out.println("yo");
 			_stage.addActor(actor);
 		}
 
 		_stage.setKeyboardFocus(_platform);
-		_platform.setBounds(0, 0, 300, 700);
+		_platform.setBounds(0, 0, _platform.getWidth(), _platform.getHeight());
 
 		View _view = new View(_platform);
 		_platform.init(_view, _inputListener);
+
 
 		Model model = new Model();
 		final Controller controller = new Controller(model, _view);
@@ -65,7 +66,7 @@ public class Tetris extends ApplicationAdapter {
 
 	@Override
 	public void render () {
-		Gdx.gl.glClearColor(0, 0, 0, 0);
+		Gdx.gl.glClearColor(0, 0, 0.5f, 0);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		_stage.draw();
 	}
