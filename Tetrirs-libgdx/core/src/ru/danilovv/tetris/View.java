@@ -37,8 +37,6 @@ public class View implements PlatformKeyListener {
     private void calculateFieldDimensions(Field field) {
         _fieldHeight = field.getRows() * CELL_SIZE;
         _fieldWidth = field.getColumns() * CELL_SIZE;
-        /*_fieldOffsetX = (_platform.getPlatformWidth() - _fieldWidth) / 2;
-        _fieldOffsetY = (_platform.getPlatformHeight() - _fieldHeight) / 2;*/
         _fieldOffsetX = (_platform.getPlatformWidth() - _fieldWidth) / 2;
         _fieldOffsetY = (_platform.getPlatformHeight() - _fieldHeight) / 2;
     }
@@ -49,9 +47,6 @@ public class View implements PlatformKeyListener {
         int columnShift = state.figureColumn;
 
         drawMatrix(matrix, rowShift, columnShift);
-        //g.setColor(Color.GREEN);
-        //g.fillRect(state.figureColumn * CELL_SIZE, state.figureRow * CELL_SIZE, CELL_SIZE, CELL_SIZE);
-
     }
 
     private void drawMatrix(int[][] matrix, int rowShift, int columnShift) {
@@ -68,8 +63,8 @@ public class View implements PlatformKeyListener {
     private void drawCell(int colorIndex, int row, int col) {
         _platform.fillRect(colorIndex, col * CELL_SIZE + _fieldOffsetX,
                 row * CELL_SIZE + _fieldOffsetY, CELL_SIZE, CELL_SIZE);
-        _platform.drawRect(col * CELL_SIZE + _fieldOffsetX,
-                row * CELL_SIZE + _fieldOffsetY, CELL_SIZE, CELL_SIZE);
+        /*_platform.drawRect(col * CELL_SIZE + _fieldOffsetX,
+                row * CELL_SIZE + _fieldOffsetY, CELL_SIZE, CELL_SIZE);*/
     }
 
     private void drawScore(int score) {
