@@ -47,21 +47,13 @@ public class AndroidLauncher extends AndroidApplication {
 		private Position _lastTouchUp;
 
 		@Override
-		public boolean keyDown(InputEvent event, int keycode) {
-			System.out.println("KEY DOWN");
-			return true;
-		}
-
-		@Override
 		public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
-			System.out.println("TOUCH down");
 			_lastTouchDown = new Position(x, y);
 			return true;
 		}
 
 		@Override
 		public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-			System.out.println("TOUCH up");
 			_lastTouchUp = new Position(x, y);
 			float differenceX = Math.abs( _lastTouchUp.X()-_lastTouchDown.X() );
 			float differenceY = Math.abs( _lastTouchUp.Y()-_lastTouchDown.Y() );
