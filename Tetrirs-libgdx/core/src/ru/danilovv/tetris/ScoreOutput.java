@@ -4,9 +4,6 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
-/**
- * Created by Vladimir_Danilov on 22-Jan-15.
- */
 public class ScoreOutput extends Actor {
     private final String template = "Score: ";
     protected int _state;

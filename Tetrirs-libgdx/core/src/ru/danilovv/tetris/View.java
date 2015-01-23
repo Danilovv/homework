@@ -63,8 +63,6 @@ public class View implements PlatformKeyListener {
     private void drawCell(int colorIndex, int row, int col) {
         _platform.fillRect(colorIndex, col * CELL_SIZE + _fieldOffsetX,
                 row * CELL_SIZE + _fieldOffsetY, CELL_SIZE, CELL_SIZE);
-        /*_platform.drawRect(col * CELL_SIZE + _fieldOffsetX,
-                row * CELL_SIZE + _fieldOffsetY, CELL_SIZE, CELL_SIZE);*/
     }
 
     private void drawScore(int score) {
