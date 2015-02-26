@@ -11,8 +11,8 @@ public class JavaPlatform implements Platform {
     private PlatformKeyListener _keyListener;
     private JPanel _panel;
 
-    private static final Color[] colors = { Color.black, Color.blue, Color.red,
-            Color.green, Color.yellow, Color.orange };
+    private static final Color[] colors = {Color.black, Color.blue, Color.red,
+            Color.green, Color.yellow, Color.orange};
 
     public void init(JFrame frame, final PlatformKeyListener keyListener) {
         _frame = frame;
@@ -48,7 +48,7 @@ public class JavaPlatform implements Platform {
     @Override
     public void clearArea() {
         Graphics2D g = (Graphics2D) _panel.getGraphics();
-        g.clearRect(0,0, _panel.getWidth(), _panel.getHeight());
+        g.clearRect(0, 0, _panel.getWidth(), _panel.getHeight());
     }
 
     @Override

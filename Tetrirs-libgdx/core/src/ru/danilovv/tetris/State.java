@@ -18,8 +18,8 @@ public class State {
 
     public void nextFigure() {
         figure = Figure.generateRandom();
-        figureColumn = field.box[0].length/2
-                - figure.data[0].length/2;
+        figureColumn = field.box[0].length / 2
+                - figure.data[0].length / 2;
         figureRow = 0;
     }
 
@@ -50,7 +50,7 @@ public class State {
     public void pasteFigure() {
         for (int r = 0; r < figure.data.length; r++) {
             for (int c = 0; c < figure.data[r].length; c++) {
-                if(figure.data[r][c] != 0) {
+                if (figure.data[r][c] != 0) {
                     field.box[figureRow + r][figureColumn + c] = figure.data[r][c];
                 }
             }
@@ -89,7 +89,7 @@ public class State {
     }
 
     public void putScore(int countOfRemovedRows) {
-        for(int i = 1; i <= countOfRemovedRows; i++) {
+        for (int i = 1; i <= countOfRemovedRows; i++) {
             _score += i * field.getColumns();
         }
     }

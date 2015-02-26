@@ -6,13 +6,13 @@ import java.util.List;
 public class Model implements EventProcessor {
     public static final int HEIGHT = 20;
     public static final int WIDTH = 10;
-    EventProcessor _eventProcessor;
+    //EventProcessor _eventProcessor;
     Logic _logic;
     State _state;
     private List<ModelListener> _listeners;
 
     public Model() {
-        _listeners = new LinkedList<>();
+        _listeners = new LinkedList<ModelListener>();
         _state = new State(HEIGHT, WIDTH);
         _logic = new Logic(_state);
     }

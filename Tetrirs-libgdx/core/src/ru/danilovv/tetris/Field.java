@@ -11,13 +11,13 @@ public class Field {
     public boolean hasConflict(int column, int row, int[][] data) {
         for (int r = 0; r < data.length; r++) {
             for (int c = 0; c < data[r].length; c++) {
-                if(data[r][c] > 0) {
+                if (data[r][c] > 0) {
 
-                    if(!isInside(r + row, c + column)) {
+                    if (!isInside(r + row, c + column)) {
                         return true;
                     }
 
-                    if(box[r+row][c+column] > 0) {
+                    if (box[r + row][c + column] > 0) {
                         return true;
                     }
 
@@ -28,7 +28,7 @@ public class Field {
     }
 
     private boolean isInside(int i, int j) {
-        return i>=0 && j>=0 && i<box.length && j<box[0].length;
+        return i >= 0 && j >= 0 && i < box.length && j < box[0].length;
     }
 
     public int getRows() {
@@ -40,11 +40,11 @@ public class Field {
     }
 
     public int removeFullRows() {
-        int [][] b = new int[box.length][box[0].length];
+        int[][] b = new int[box.length][box[0].length];
         int pointer = box.length - 1;
         int countOfFullRows = 0;
-        for(int row = pointer; row >= 0; row--) {
-            if(isFull(box[row])) {
+        for (int row = pointer; row >= 0; row--) {
+            if (isFull(box[row])) {
                 countOfFullRows++;
                 continue;
             }
@@ -58,7 +58,7 @@ public class Field {
 
     private boolean isFull(int[] row) {
         for (Integer cell : row) {
-            if(cell == 0) {
+            if (cell == 0) {
                 return false;
             }
         }

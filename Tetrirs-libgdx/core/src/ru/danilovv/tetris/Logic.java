@@ -10,7 +10,7 @@ public class Logic implements EventProcessor {
 
     @Override
     public void moveLeft() {
-        if(!state.canMoveLeft()) {
+        if (!state.canMoveLeft()) {
             return;
         }
         state.moveFigureLeft();
@@ -18,7 +18,7 @@ public class Logic implements EventProcessor {
 
     @Override
     public void moveRight() {
-        if(!state.canMoveRight()) {
+        if (!state.canMoveRight()) {
             return;
         }
         state.moveFigureRight();
@@ -34,20 +34,20 @@ public class Logic implements EventProcessor {
     @Override
     public void rotate() {
         state.rotate();
-        if(!state.isFigureInBox()) {
+        if (!state.isFigureInBox()) {
             state.setFigureToBeAtTheBox();
         }
     }
 
     @Override
     public void moveDown() {
-        if(!state.canMoveDown()) {
+        if (!state.canMoveDown()) {
             state.pasteFigure();
             int countOfRemovedRows = state.removeFullRows();
             state.putScore(countOfRemovedRows);
             state.nextFigure();
 
-            if(!state.canMoveDown()
+            if (!state.canMoveDown()
                     && !state.canMoveLeft()
                     && !state.canMoveRight()) {
                 resetGame();
